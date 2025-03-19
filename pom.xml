@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ivy.mcp</groupId>
+    <artifactId>spring-ai-mcp</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>claude-mcp-examples</name>
+    <description>claude-mcp-examples</description>
+
+
+    <modules>
+        <module>spring-ai-mcp-client</module>
+        <module>spring-ai-mcp-server</module>
+    </modules>
+
+</project>
