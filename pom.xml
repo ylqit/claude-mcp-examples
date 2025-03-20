@@ -15,7 +15,8 @@
 
     <modules>
         <module>spring-ai-mcp-client</module>
-        <module>spring-ai-mcp-server</module>
+        <module>mcp-server/spring-ai-mcp-stdio-server</module>
+        <module>mcp-server/spring-ai-mcp-webmvc-server</module>
     </modules>
 
 </project>

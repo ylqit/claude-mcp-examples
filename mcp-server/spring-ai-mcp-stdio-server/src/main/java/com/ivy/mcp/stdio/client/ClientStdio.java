@@ -1,4 +1,4 @@
-package com.ivy.mcp.client;
+package com.ivy.mcp.stdio.client;
 
 import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.transport.ServerParameters;
@@ -19,7 +19,7 @@ public class ClientStdio {
 
         var stdioParams = ServerParameters.builder("java")
                 .args("-jar",
-                        "spring-ai-mcp-server/target/spring-ai-mcp-server-1.0.0-SNAPSHOT.jar")
+                        "mcp-server/spring-ai-mcp-stdio-server/target/spring-ai-mcp-stdio-server-1.0.0-SNAPSHOT.jar")
                 .build();
 
         var transport = new StdioClientTransport(stdioParams);
@@ -38,8 +38,6 @@ public class ClientStdio {
             CallToolResult currentTimResult = client.callTool(new CallToolRequest("getCurrentTime", Map.of()));
             System.out.println("current time Response = " + currentTimResult);
         }
-
-
     }
 
 }
