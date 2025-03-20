@@ -19,7 +19,7 @@ public class McpServerApplication {
     }
 
     @Bean
-	public List<ToolCallback> weatherTools(MyTools myTools) {
+	public List<ToolCallback> myTools(MyTools myTools) {
 		return List.of(ToolCallbacks.from(myTools));
 	}
 
