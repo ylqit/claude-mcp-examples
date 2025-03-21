@@ -16,6 +16,7 @@ public class ClientWebflux {
         try (var client = McpClient.sync(transport).build()) {
 
             client.initialize();
+//            client.ping();
 
             McpSchema.ListToolsResult toolsList = client.listTools();
             System.out.println("Available Tools = " + toolsList);

@@ -17,11 +17,6 @@ public class McpWebmvcServerApplication {
         SpringApplication.run(McpWebmvcServerApplication.class, args);
     }
 
-    // @Bean
-	// public List<ToolCallback> myTools(MyTools myTools) {
-	// 	return List.of(ToolCallbacks.from(myTools));
-	// }
-
     @Bean
     public ToolCallbackProvider myToolsProvider(MyTools myTools) {
         return MethodToolCallbackProvider.builder().toolObjects(myTools).build();
