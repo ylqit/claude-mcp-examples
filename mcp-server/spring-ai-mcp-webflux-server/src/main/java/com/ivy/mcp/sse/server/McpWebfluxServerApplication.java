@@ -12,21 +12,16 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 
 @SpringBootApplication
-public class McpWebmvcServerApplication {
+public class McpWebfluxServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(McpWebmvcServerApplication.class, args);
+        SpringApplication.run(McpWebfluxServerApplication.class, args);
     }
 
-    // @Bean
-	// public List<ToolCallback> myTools(MyTools myTools) {
-	// 	return List.of(ToolCallbacks.from(myTools));
-	// }
 
     @Bean
     public ToolCallbackProvider myToolsProvider(MyTools myTools) {
         return MethodToolCallbackProvider.builder().toolObjects(myTools).build();
     }
-
 
     @Service
     public static class MyTools {

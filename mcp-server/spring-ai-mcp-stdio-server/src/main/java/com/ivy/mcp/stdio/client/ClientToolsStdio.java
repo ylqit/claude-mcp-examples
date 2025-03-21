@@ -13,7 +13,7 @@ import java.util.Map;
  * With stdio transport, the MCP server is automatically started by the client. But you
  * have to build the server jar first:
  */
-public class ClientStdio {
+public class ClientToolsStdio {
 
     public static void main(String[] args) {
 
@@ -30,13 +30,17 @@ public class ClientStdio {
             ListToolsResult toolsList = client.listTools();
             System.out.println("Available Tools = " + toolsList);
 
-            CallToolResult sumResult = client.callTool(new CallToolRequest("add",
-                    Map.of("a", 1, "b", 2)));
-            System.out.println("add a+ b =  " + sumResult.content().get(0));
+             CallToolResult sumResult = client.callTool(new CallToolRequest("add",
+                     Map.of("a", 1, "b", 2)));
+             System.out.println("add a+ b =  " + sumResult.content().get(0));
 
 
-            CallToolResult currentTimResult = client.callTool(new CallToolRequest("getCurrentTime", Map.of()));
-            System.out.println("current time Response = " + currentTimResult);
+             CallToolResult currentTimResult = client.callTool(new CallToolRequest("getCurrentTime", Map.of()));
+             System.out.println("current time Response = " + currentTimResult);
+
+
+            CallToolResult toUpperCaseResult = client.callTool(new CallToolRequest("toUpperCase", Map.of("input", "hello")));;
+            System.out.println("toUpperCaseResult = " + toUpperCaseResult);
         }
     }
 
