@@ -1,0 +1,29 @@
+application:
+  name: spring-ai-mcp-mysql-chat
+
+spring:
+  ai:
+    mcp:
+      client:
+        enabled: true
+        name: mcp-mysql-chat-client
+        request-timeout: 30s
+        type: SYNC
+        version: 1.0.0
+        stdio:
+#          connections:
+#            server:
+#              command: java
+#              args:
+#                - -jar
+#                - mysql/mcp-mysql-server/target/mcp-mysql-server-1.0.0-SNAPSHOT.jar
+#              env:
+#                - MYSQL_USER:root
+#                - MYSQL_PASSWORD:Admin123
+#                - MYSQL_DATABASE:jmt
+          servers-configuration: classpath:mcp-servers-config.json
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: qwen2.5:latest
+

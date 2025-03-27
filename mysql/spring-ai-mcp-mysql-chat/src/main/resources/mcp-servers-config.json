@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "mysql-mcp-server": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "mysql/mcp-mysql-server/target/mcp-mysql-server-1.0.0-SNAPSHOT.jar"
+      ],
+      "env": {
+        "MYSQL_USER": "root",
+        "MYSQL_PASSWORD": "Admin123",
+        "MySQL_DATABASE": "jmt"
+      }
+    }
+  }
+}

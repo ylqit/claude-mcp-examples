@@ -18,6 +18,8 @@
         <module>mcp-server/spring-ai-mcp-stdio-server</module>
         <module>mcp-server/spring-ai-mcp-webmvc-server</module>
         <module>mcp-server/spring-ai-mcp-webflux-server</module>
+        <module>mysql/mcp-mysql-server</module>
+        <module>mysql/spring-ai-mcp-mysql-chat</module>
     </modules>
 
 </project>
