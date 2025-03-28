@@ -2,8 +2,6 @@ package com.ivy.mcp;
 
 import jakarta.annotation.Resource;
 
-import java.util.Arrays;
-
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;

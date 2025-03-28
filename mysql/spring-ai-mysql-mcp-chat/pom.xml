@@ -10,11 +10,11 @@
     </parent>
 
     <groupId>com.ivy.mcp</groupId>
-    <artifactId>spring-ai-mcp-mysql-chat</artifactId>
+    <artifactId>spring-ai-mysql-mcp-chat</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>spring-ai-mcp-mysql-chat</name>
-    <description>spring-ai-mcp-mysql-chat</description>
+    <name>spring-ai-mysql-mcp-chat</name>
+    <description>spring-ai-mysql-mcp-chat</description>
 
     <properties>
         <java.version>17</java.version>
@@ -25,14 +25,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.4.3</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-mcp-client-spring-boot-starter</artifactId>
+            <version>${spring-ai.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-ollama-spring-boot-starter</artifactId>
+            <version>${spring-ai.version}</version>
         </dependency>
 
         <dependency>

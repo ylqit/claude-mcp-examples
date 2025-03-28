@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ivy.mcp</groupId>
-    <artifactId>mcp-mysql-server</artifactId>
+    <artifactId>mysql-mcp-server</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>mcp-mysql-server</name>
-    <description>mcp-mysql-server</description>
+    <name>mysql-mcp-server</name>
+    <description>mysql-mcp-server</description>
 
     <properties>
         <java.version>17</java.version>
