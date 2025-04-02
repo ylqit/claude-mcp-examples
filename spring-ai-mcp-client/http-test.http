@@ -1,0 +1,23 @@
+###
+GET http://localhost:8080/chat?input=有哪些工具可以使用
+
+###
+GET localhost:8080/chat?input=创建文件夹mcp，并在文件夹下创建文件 mcp.txt，写入内容 Hello Mcp！
+
+###
+GET localhost:8080/chat?input=将mcp文件夹下的mcp.txt文件中的Mcp改为大写
+
+
+
+### 测试 playwright
+GET localhost:8080/chat?input=使用谷歌浏览器打开 https://www.baidu.com 网站 并输入 Spring AI 进行搜索
+
+
+###
+GET localhost:8080/chat?input=获取谷歌浏览器console日志
+
+###
+GET localhost:8080/chat?input=使用谷歌浏览器打开https://docs.spring.io/spring-ai/reference/api/prompt.html并截图
+
+###
+GET localhost:8080/chat?input=使用谷歌浏览器打开https://docs.spring.io/spring-ai/reference/api/prompt.html并获取HTML页面内容，并写入prompt.txt中
