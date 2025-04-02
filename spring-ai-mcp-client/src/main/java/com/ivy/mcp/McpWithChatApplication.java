@@ -5,7 +5,9 @@ import jakarta.annotation.Resource;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.chat.client.advisor.api.AdvisedRequest;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
+import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.ai.ollama.OllamaChatModel;
@@ -24,8 +26,8 @@ public class McpWithChatApplication {
 
     @RestController
     public static class ChatController {
-        @Resource
-        private OllamaChatModel ollamaChatModel;
+//        @Resource
+//        private OllamaChatModel ollamaChatModel;
 
         @Resource
         private OpenAiChatModel openAiChatModel;
@@ -35,9 +37,9 @@ public class McpWithChatApplication {
 
         @GetMapping("/chat")
         public String call(@RequestParam String input) {
-            ChatClient chatClient = ChatClient.builder(ollamaChatModel)
+            ChatClient chatClient = ChatClient.builder(openAiChatModel)
                     .defaultTools(toolCallbackProvider.getToolCallbacks())
-                    .defaultAdvisors(new SimpleLoggerAdvisor(req->req.userText(), req->req.toString(), 0))
+                    .defaultAdvisors(new SimpleLoggerAdvisor(AdvisedRequest::userText, ChatResponse::toString, 0))
                     .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))
                     .build();
             return chatClient.prompt(input).call().content();

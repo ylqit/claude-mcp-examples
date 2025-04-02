@@ -5,7 +5,6 @@ import jakarta.annotation.Resource;
 import org.springframework.ai.mcp.SyncMcpToolCallbackProvider;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,21 +13,4 @@ import java.util.List;
  */
 @Component
 public class SyncTemplateProvider {
-
-    private final List<McpSyncClient> mcpClients;
-
-    @Resource
-    private SyncMcpToolCallbackProvider toolCallbackProvider;
-
-    public SyncTemplateProvider(List<McpSyncClient> mcpClients) {
-        this.mcpClients = mcpClients;
-    }
-
-    public SyncTemplateProvider(McpSyncClient... mcpClients) {
-        this.mcpClients = List.of(mcpClients);
-    }
-
-    public String getTemplate(String templateName) {
-        return "";
-    }
 }

@@ -13,34 +13,34 @@ import java.util.Map;
 public class McpResourcesProvider {
 
     @Bean
-    public List<McpServerFeatures.SyncResourceRegistration> syncResourceRegistrations() {
+    public List<McpServerFeatures.SyncResourceSpecification> syncResourceRegistrations() {
 
         var systemInfoResource = new McpSchema.Resource(
                 "system://info",
                 "System Information",
                 "Provides basic system information including Java version, OS, etc.",
-                "application/json", null
-        );
+                "application/json", null);
 
-        var resourceRegistration = new McpServerFeatures.SyncResourceRegistration(systemInfoResource, (request) -> {
-            try {
-                var systemInfo = Map.of(
-                        "javaVersion", System.getProperty("java.version"),
-                        "osName", System.getProperty("os.name"),
-                        "osVersion", System.getProperty("os.version"),
-                        "osArch", System.getProperty("os.arch"),
-                        "processors", Runtime.getRuntime().availableProcessors(),
-                        "timestamp", System.currentTimeMillis());
+        var resourceRegistration = new McpServerFeatures.SyncResourceSpecification(systemInfoResource,
+                (exchange, request) -> {
+                    try {
+                        var systemInfo = Map.of(
+                                "javaVersion", System.getProperty("java.version"),
+                                "osName", System.getProperty("os.name"),
+                                "osVersion", System.getProperty("os.version"),
+                                "osArch", System.getProperty("os.arch"),
+                                "processors", Runtime.getRuntime().availableProcessors(),
+                                "timestamp", System.currentTimeMillis());
 
-                String jsonContent = new ObjectMapper().writeValueAsString(systemInfo);
+                        String jsonContent = new ObjectMapper().writeValueAsString(systemInfo);
 
-                return new McpSchema.ReadResourceResult(
-                        List.of(new McpSchema.TextResourceContents(request.uri(), "application/json", jsonContent)));
-            }
-            catch (Exception e) {
-                throw new RuntimeException("Failed to generate system info", e);
-            }
-        });
+                        return new McpSchema.ReadResourceResult(
+                                List.of(new McpSchema.TextResourceContents(request.uri(), "application/json",
+                                        jsonContent)));
+                    } catch (Exception e) {
+                        throw new RuntimeException("Failed to generate system info", e);
+                    }
+                });
 
         return List.of(resourceRegistration);
     }

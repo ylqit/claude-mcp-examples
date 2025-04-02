@@ -1,6 +1,5 @@
 package com.ivy.mcp.controller;
 
-import io.modelcontextprotocol.client.McpSyncClient;
 import jakarta.annotation.Resource;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
@@ -10,8 +9,6 @@ import org.springframework.ai.ollama.OllamaChatModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 
 @RestController
@@ -32,10 +29,4 @@ public class ChatController {
     }
 
 
-
-    private List<McpSyncClient> mcpSyncClients;
-
-    private String getSystemPrompt() {
-        return "System: ";
-    }
 }

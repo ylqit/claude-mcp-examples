@@ -14,9 +14,7 @@ public class McpClientJavaSdkExamples {
     public static void main(String[] args) {
         StdioClientTransport transport = new StdioClientTransport(
                 ServerParameters.builder("npx")
-                        .args("-y",
-                                "@modelcontextprotocol/server-filesystem",
-                                "/Users/fangjie33/ai/claude-mcp-examples")
+                        .args("-y", "@modelcontextprotocol/server-filesystem", ".")
                         .build(),
                 new ObjectMapper()
         );

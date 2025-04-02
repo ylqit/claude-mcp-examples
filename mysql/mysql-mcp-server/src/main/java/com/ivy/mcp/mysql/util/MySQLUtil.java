@@ -53,7 +53,7 @@ public class MySQLUtil {
      *
      * @return a string of all tables in the MySQL database
      */
-    public static String showTablesTool() throws SQLException {
+    public static List<String> showTables() throws SQLException {
         List<String> tables = new ArrayList<>();
         try (
                 final Connection connection = getConnection();
@@ -64,7 +64,7 @@ public class MySQLUtil {
                 tables.add(rs.getString(1));
             }
         }
-        return String.join("/n", tables);
+        return tables;
     }
 
     /**
@@ -73,7 +73,7 @@ public class MySQLUtil {
      * @param sql the SQL statement to execute
      * @return a string of the result set of the SQL statement
      */
-    public static String queryTool(final String sql) throws SQLException {
+    public static String query(final String sql) throws SQLException {
         try (Connection connection = getConnection();
              Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(sql)) {
@@ -87,7 +87,7 @@ public class MySQLUtil {
      * @param sql the SQL statement to execute
      * @return true if the statement is an update statement, false otherwise
      */
-    public static boolean updateTool(final String sql) throws SQLException {
+    public static boolean update(final String sql) throws SQLException {
         try (Connection connection = getConnection();
              Statement statement = connection.createStatement()) {
             return statement.execute(sql);

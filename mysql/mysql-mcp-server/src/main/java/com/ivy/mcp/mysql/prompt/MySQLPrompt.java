@@ -7,12 +7,14 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+import static com.ivy.mcp.mysql.util.StrUtil.MYSQL_SYSTEM_PROMPT;
+
 public class MySQLPrompt {
     private static final Logger LOGGER = LoggerFactory.getLogger(MySQLPrompt.class);
 
     public static McpServerFeatures.SyncPromptSpecification SyncPrompt() {
         final McpSchema.Prompt prompt = new McpSchema.Prompt(
-                "mysql-mcp-prompt",
+                MYSQL_SYSTEM_PROMPT,
                 "A prompt to seed system prompt for MySQL Server chat with mcp.",
                 List.of(
                         new McpSchema.PromptArgument("resources_description", "A list of resources available to the user.", true),

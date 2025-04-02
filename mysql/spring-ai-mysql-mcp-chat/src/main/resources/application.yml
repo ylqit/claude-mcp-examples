@@ -1,7 +1,6 @@
-application:
-  name: spring-ai-mcp-mysql-chat
-
 spring:
+  application:
+    name: spring-ai-mcp-mysql-chat
   ai:
     mcp:
       client:

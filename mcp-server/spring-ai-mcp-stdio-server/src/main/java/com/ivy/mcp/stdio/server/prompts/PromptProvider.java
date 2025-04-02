@@ -11,7 +11,7 @@ import java.util.List;
 public class PromptProvider {
 
     @Bean
-    public List<McpServerFeatures.SyncPromptRegistration> promptRegistrations() {
+    public List<McpServerFeatures.SyncPromptSpecification> promptRegistrations() {
 
         var prompt = new McpSchema.Prompt(
                 "greeting",
@@ -21,10 +21,10 @@ public class PromptProvider {
                 )
         );
 
-        var promptRegistration = new McpServerFeatures.SyncPromptRegistration(
-                prompt, getPromptRequest -> {
+        var promptRegistration = new McpServerFeatures.SyncPromptSpecification(
+                prompt, (exchange, request) -> {
 
-            String nameArgument = (String) getPromptRequest.arguments().get("name");
+            String nameArgument = (String) request.arguments().get("name");
             if (nameArgument == null) {
                 nameArgument = "friend";
             }
