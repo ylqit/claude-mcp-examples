@@ -25,7 +25,7 @@ public class MySQLUtil {
         final int port = Integer.parseInt(getEnv("MYSQL_PORT", "3306"));
         final String user = getEnv("MYSQL_USER", "root");
         final String password = getEnv("MYSQL_PASSWORD", "Admin123");
-        final String database = getEnv("MYSQL_DATABASE", "jmt");
+        final String database = getEnv("MYSQL_DATABASE", "mcp");
 
         final String url = String.format("jdbc:mysql://%s:%d/%s", host, port, database);
         return DriverManager.getConnection(url, user, password);

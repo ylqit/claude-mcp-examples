@@ -8,11 +8,12 @@ import io.modelcontextprotocol.spec.McpSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.ivy.mcp.mysql.util.StrUtil.MYSQL_EXECUTE_TOOL;
-import static com.ivy.mcp.mysql.util.StrUtil.MYSQL_RESOURCE_TOOL_NAME;
 
 /**
  * @author ivy
@@ -67,28 +68,20 @@ public class MySQLTool {
                         """);
     }
 
-    public static McpServerFeatures.SyncToolSpecification SyncListResources() {
-        return new McpServerFeatures.SyncToolSpecification(listResourceTool(),
-                (exchange, args) -> {
-                    try {
-                        List<ResourceDes> resourceDes = MySQLUtil.showTables().stream()
-                                .map(tableName -> new ResourceDes(
-                                        tableName,
-                                        StrUtil.RESOURCE_URI.replace("{table}", tableName),
-                                        "")
-                                )
-                                .toList();
-                        return new McpSchema.CallToolResult(
-                                List.of(new McpSchema.TextContent(resourceDes.toString())), false);
-                    } catch (SQLException exception) {
-                        LOGGER.error("Error get list resources, errorMsg: {}", exception.getMessage(), exception);
-                        return new McpSchema.CallToolResult(List.of(new McpSchema.TextContent("Error")), true);
-                    }
-                });
-    }
-
-    public static McpSchema.Tool listResourceTool() {
-        return new McpSchema.Tool(MYSQL_RESOURCE_TOOL_NAME, "Get All MySQL table Resources ", "");
+    public static String SyncListResources() {
+        try {
+            return MySQLUtil.showTables().stream()
+                    .map(tableName -> new ResourceDes(
+                            tableName,
+                            StrUtil.RESOURCE_URI.replace("{table}", tableName),
+                            "")
+                            .toString()
+                    )
+                    .collect(Collectors.joining("\n"));
+        } catch (SQLException e) {
+            LOGGER.error("list all resources failed, error:{}", e.getMessage(), e);
+            return "";
+        }
     }
 
     public record ResourceDes(String name, String uri, String description) {

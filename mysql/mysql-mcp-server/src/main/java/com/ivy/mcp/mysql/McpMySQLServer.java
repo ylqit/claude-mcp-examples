@@ -31,22 +31,25 @@ public class McpMySQLServer {
         }
         final McpSyncServer syncServer = McpServer.sync(transport)
                 .serverInfo("mysql-mcp-server", "1.0.0")
-                .capabilities(McpSchema.ServerCapabilities.builder()
-                        .resources(false, true)
-                        .tools(true)
-                        .prompts(true)
-                        .logging()
-                        .build())
+                .capabilities(
+                        McpSchema.ServerCapabilities.builder()
+                                .resources(false, true)
+                                .tools(true)
+                                .prompts(true)
+                                .logging()
+                                .build())
                 .prompts(MySQLPrompt.SyncPrompt())
                 .tools(MySQLTool.SyncMySQLTool())
                 .resources(MySQLResource.SyncResource())
                 .build();
 
-        syncServer.loggingNotification(McpSchema.LoggingMessageNotification.builder()
-                .level(McpSchema.LoggingLevel.INFO)
-                .logger("mysql-mcp-logger")
-                .data("Server initialized")
-                .build());
+        syncServer.loggingNotification(
+                McpSchema.LoggingMessageNotification.builder()
+                        .level(McpSchema.LoggingLevel.INFO)
+                        .logger("mysql-mcp-logger")
+                        .data("Server initialized")
+                        .build()
+        );
 
         LOGGER.info("MySQL MCP Server Started");
         return syncServer;

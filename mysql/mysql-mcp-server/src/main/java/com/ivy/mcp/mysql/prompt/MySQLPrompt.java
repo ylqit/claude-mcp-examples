@@ -1,5 +1,6 @@
 package com.ivy.mcp.mysql.prompt;
 
+import com.ivy.mcp.mysql.tools.MySQLTool;
 import io.modelcontextprotocol.server.McpServerFeatures;
 import io.modelcontextprotocol.spec.McpSchema;
 import org.slf4j.Logger;
@@ -17,27 +18,25 @@ public class MySQLPrompt {
                 MYSQL_SYSTEM_PROMPT,
                 "A prompt to seed system prompt for MySQL Server chat with mcp.",
                 List.of(
-                        new McpSchema.PromptArgument("resources_description", "A list of resources available to the user.", true),
+                        new McpSchema.PromptArgument("resources_description", "A list of resources available to the user.", false),
                         new McpSchema.PromptArgument("tools_description", "A list of tools available to the user.", true)
                 )
         );
-
 
         return new McpServerFeatures.SyncPromptSpecification(
                 prompt,
                 (exchange, request) -> {
                     LOGGER.debug("Handling get prompt request for {} with args:{}", prompt.name(), request.arguments());
-                    String resources_description = (String) request.arguments().get("resources_description");
                     String tools_description = (String) request.arguments().get("tools_description");
 
-                    LOGGER.debug("Generated prompt template for resources:{}, tools:{}", resources_description, tools_description);
+                    LOGGER.debug("Generated prompt template for resources:{}, tools:{}", tools_description);
                     return new McpSchema.GetPromptResult(
                             "",
                             List.of(
                                     new McpSchema.PromptMessage(
                                             McpSchema.Role.ASSISTANT,
                                             new McpSchema.TextContent(PROMPT_TEMPLATE
-                                                    .replace("{resources_description}", resources_description)
+                                                    .replace("{resources_description}", MySQLTool.SyncListResources())
                                                     .replace("{tools_description}", tools_description)
                                             )
                                     )

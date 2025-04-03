@@ -4,12 +4,12 @@
       "command": "java",
       "args": [
         "-jar",
-        "mysql/mcp-mysql-server/target/mcp-mysql-server-1.0.0-SNAPSHOT.jar"
+        "/Users/fangjie33/CursorProjects/claude-mcp-examples/mysql/mysql-mcp-server/target/mysql-mcp-server-1.0.0-SNAPSHOT.jar"
       ],
       "env": {
         "MYSQL_USER": "root",
         "MYSQL_PASSWORD": "Admin123",
-        "MySQL_DATABASE": "jmt"
+        "MySQL_DATABASE": "mcp"
       }
     }
   }

@@ -19,10 +19,14 @@ spring:
 #              env:
 #                - MYSQL_USER:root
 #                - MYSQL_PASSWORD:Admin123
-#                - MYSQL_DATABASE:jmt
+#                - MYSQL_DATABASE:mcp
           servers-configuration: classpath:mcp-servers-config.json
-    ollama:
-      base-url: http://localhost:11434
+    openai:
+      api-key: sk-05eedd2cbb9a4b21ae6fe6bc08ac2fe1
+      base-url: https://dashscope.aliyuncs.com
       chat:
-        model: qwen2.5:latest
+        enabled: on
+        options:
+          model: qwen-plus
+        completions-path: /compatible-mode/v1/chat/completions
 
