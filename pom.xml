@@ -20,6 +20,7 @@
         <module>mcp-server/spring-ai-mcp-webflux-server</module>
         <module>mysql/mysql-mcp-server</module>
         <module>mysql/spring-ai-mysql-mcp-chat</module>
+        <module>spring-ai-mcp-travel</module>
     </modules>
 
 </project>
