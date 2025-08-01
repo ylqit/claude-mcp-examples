@@ -18,7 +18,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <spring-ai.version>1.0.0-SNAPSHOT</spring-ai.version>
+        <spring-ai.version>1.0.0-M6</spring-ai.version>
     </properties>
 
     <dependencies>
@@ -66,34 +66,34 @@
         </plugins>
     </build>
 
-    <repositories>
-        <repository>
-            <name>Central Portal Snapshots</name>
-            <id>central-portal-snapshots</id>
-            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--&lt;!&ndash;        <repository>&ndash;&gt;-->
+<!--&lt;!&ndash;            <name>Central Portal Snapshots</name>&ndash;&gt;-->
+<!--&lt;!&ndash;            <id>central-portal-snapshots</id>&ndash;&gt;-->
+<!--&lt;!&ndash;            <url>https://central.sonatype.com/repository/maven-snapshots/</url>&ndash;&gt;-->
+<!--&lt;!&ndash;            <releases>&ndash;&gt;-->
+<!--&lt;!&ndash;                <enabled>false</enabled>&ndash;&gt;-->
+<!--&lt;!&ndash;            </releases>&ndash;&gt;-->
+<!--&lt;!&ndash;            <snapshots>&ndash;&gt;-->
+<!--&lt;!&ndash;                <enabled>true</enabled>&ndash;&gt;-->
+<!--&lt;!&ndash;            </snapshots>&ndash;&gt;-->
+<!--&lt;!&ndash;        </repository>&ndash;&gt;-->
+<!--        <repository>-->
+<!--            <id>spring-milestones</id>-->
+<!--            <name>Spring Milestones</name>-->
+<!--            <url>https://repo.spring.io/milestone</url>-->
+<!--            <snapshots>-->
+<!--                <enabled>false</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--        <repository>-->
+<!--            <id>spring-snapshots</id>-->
+<!--            <name>Spring Snapshots</name>-->
+<!--            <url>https://repo.spring.io/snapshot</url>-->
+<!--            <releases>-->
+<!--                <enabled>false</enabled>-->
+<!--            </releases>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
 </project>
